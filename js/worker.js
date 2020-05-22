@@ -1,15 +1,16 @@
 var SWITCH_INTERVAL = 30;			    			 //Set the number of seconds you want before switching images.
 var BACKGROUND_FILES = [                             //Add new backgrounds here.
-    '1.jpg',
-    '2.jpg',
-    '3.jpg',
-    '4.jpg',
-    '5.jpg',
-    '6.jpg',
-    '7.jpg',
-    '8.jpg',
-    '9.jpg',
-    '10.jpg'
+    'space.jpg',
+//    '1.jpg',
+//    '2.jpg',
+//    '3.jpg',
+//    '4.jpg',
+//    '5.jpg',
+//    '6.jpg',
+//    '7.jpg',
+//    '8.jpg',
+//    '9.jpg',
+//    '10.jpg'
 ];
 var CYCLE_BACKGROUND = false;                         // Set to cycle the background
 var TIMES = [
@@ -126,13 +127,13 @@ var imageNum = 0;
     function initDays() {
         var dict = {};
 
-        dict['0'] = "Sunday";
-        dict['1'] = "Monday";
-        dict['2'] = "Tuesday";
-        dict['3'] = "Wednesday";
-        dict['4'] = "Thursday";
-        dict['5'] = "Friday";
-        dict['6'] = "Saturday";
+        dict['0'] = "Sun";
+        dict['1'] = "Mon";
+        dict['2'] = "Tues";
+        dict['3'] = "Weds";
+        dict['4'] = "Thurs";
+        dict['5'] = "Fri";
+        dict['6'] = "Sat";
         
         return dict;
     }
@@ -144,8 +145,8 @@ var imageNum = 0;
     function getTime() {
         for (var timeObj of TIMES) {
             var date =  new Date(
-                            new Date().getTime() + timeObj.timezone * 3600 * 1000
-                        );
+                new Date().getTime() + timeObj.timezone * 3600 * 1000
+            );
             var hour = date.getHours();
             var minutes = date.getMinutes();
             var seconds = date.getSeconds();
@@ -161,19 +162,19 @@ var imageNum = 0;
     }
 
     function makeTimeBoxes(writtenDate, time, seconds, place, id) {
-        if (document.getElementById(id+'-time-holder')) {
+        if (document.getElementById(id+'-clock')) {
             document.getElementById(id+'-time').textContent = time;
             document.getElementById(id+'-seconds').textContent = seconds;
             document.getElementById(id+'-date').textContent = writtenDate;
         }
         else {
             var timeHolder = document.createElement("div");
-            timeHolder.className = "time-holder";
-            timeHolder.id = id+'-time-holder';
+            timeHolder.className = "clock";
+            timeHolder.id = id+'-clock';
             var placeElm = document.createElement("div");
             placeElm.className = 'city';
             placeElm.textContent = place;
-            var date = document.createElement("p");
+            var date = document.createElement("div");
             date.id = id+'-date';
             date.className = 'date';
             date.textContent = writtenDate;
@@ -192,7 +193,7 @@ var imageNum = 0;
             timeHolder.appendChild(placeElm);
             timeHolder.appendChild(date);
             timeHolder.appendChild(timeline);
-            document.getElementById('time-container').appendChild(timeHolder);
+            document.getElementById('header').appendChild(timeHolder);
         }
     }
     

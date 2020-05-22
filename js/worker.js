@@ -93,16 +93,76 @@ var imageNum = 0;
     * Function is used to fetch your custom data and build it.
     */
     function makeData() {
-        addRowToTable('Some Value', 'Update Me');
-
+        addRowToTable('Update Me', 'Please');
+        makeSamplePlot();
 //        $.ajax({
-//            url: 'your URL',
+//            url: '',
 //            success: function(results){
-//                addRowToTable('Some Value', 'Update Me');
+//                addRowToTable('Update Me', 'Please');
+//                makeSamplePlot();
 //            }
 //        });
     }
 
+    function makeSamplePlot() {
+
+        var trace2 = {
+            x: [1, 2, 3, 4, 5],
+            y: [3, 16, 5, 11, 9],
+            mode: 'lines',
+            line: { color: '#39b9e0', width: 3 },
+            type: 'scatter',
+            name: 'data points',
+            connectgaps: true,
+        };
+
+        Plotly.newPlot('chart', [trace2], {
+            title: 'Plot Title',
+            xaxis_title: 'x Axis Title',
+            yaxis_title: 'y Axis Title',
+            font: {
+                size: 16,
+                color: '#bfbfbf',
+            },
+            autosize: true,
+            showlegend: false,
+            yaxis: {
+                title: 'Y Axis',
+                font: {
+                    size: 14,
+                },
+                fixedrange: true,
+                showgrid: true,
+                showline: true,
+                gridcolor: '#113a7f',
+                gridwidth: 1,
+                linecolor: '#2a93fe',
+                linewidth: 2,
+                tickfont : {
+                    size : 14,
+                    color : '#80e3ea',
+                },
+            },
+            xaxis: {
+                title: 'X Axis',
+                font: {
+                    size: 14,
+                },
+                showgrid: true,
+                gridcolor: '#113a7f',
+                gridwidth: 1,
+                showline: true,
+                linecolor: '#2a93fe',
+                linewidth: 2,
+                tickfont : {
+                    size : 14,
+                    color : '#80e3ea',
+                },  
+            },
+            plot_bgcolor: 'rgba(0, 0, 0, 0)',
+            paper_bgcolor: 'rgba(0, 0, 0, 0)',
+        });
+    }
 
     /**
     * Function builds a table row.

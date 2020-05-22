@@ -29,11 +29,10 @@ var imageNum = 0;
 
         //Do Date and Time stuff
         setInterval( function() { updateDateTime(); } , 1000);
-        
+
         //Set up background-images
-        if(CYCLE_BACKGROUND) {
-            setInterval(function(){ cycleImages(); }, SWITCH_INTERVAL*1000);
-        }
+        if(CYCLE_BACKGROUND) setInterval(function(){ cycleImages(); }, SWITCH_INTERVAL*1000);
+
     });
 
     /**
@@ -84,9 +83,42 @@ var imageNum = 0;
     * Function is used to initialize the all feeds and info.
     */
     function initialize() {
+        makeData();
         updateDateTime();
         initImages();
         cycleImages();
+    }
+
+    /**
+    * Function is used to fetch your custom data and build it.
+    */
+    function makeData() {
+        addRowToTable('Some Value', 'Update Me');
+
+//        $.ajax({
+//            url: 'your URL',
+//            success: function(results){
+//                addRowToTable('Some Value', 'Update Me');
+//            }
+//        });
+    }
+
+
+    /**
+    * Function builds a table row.
+    **/
+    function addRowToTable(val, lbl) {
+        var row     = document.createElement('tr');
+        var value   = document.createElement('td');
+        var label   = document.createElement('td');
+
+        value.className     = 'value';
+        value.textContent   = val;
+        label.className     = 'label accented';
+        label.textContent   = lbl;
+        row.appendChild(value);
+        row.appendChild(label);
+        document.getElementById('info').appendChild(row);
     }
 
     /**
@@ -169,14 +201,14 @@ var imageNum = 0;
         }
         else {
             var timeHolder = document.createElement("div");
-            timeHolder.className = "clock";
+            timeHolder.className = "clock box";
             timeHolder.id = id+'-clock';
             var placeElm = document.createElement("div");
             placeElm.className = 'city';
             placeElm.textContent = place;
             var date = document.createElement("div");
             date.id = id+'-date';
-            date.className = 'date';
+            date.className = 'date accented';
             date.textContent = writtenDate;
             var timeline = document.createElement("div");
             timeline.className = 'time-line';
@@ -186,7 +218,7 @@ var imageNum = 0;
             timeElm.className = 'time';
             var secondsElm = document.createElement("div");
             secondsElm.id = id+'-seconds';
-            secondsElm.className = 'seconds';
+            secondsElm.className = 'seconds accented';
             secondsElm.textContent = seconds;
             timeline.appendChild(timeElm);
             timeline.appendChild(secondsElm);

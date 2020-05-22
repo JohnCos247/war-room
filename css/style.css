@@ -1,8 +1,17 @@
+/** Main color styles **/
+body { color: #4fefff; }    /* color: #f2f2f2; For white instead of light blue*/
+.accented { color: #bfbfbf; } /* Gray coloring */
+.box { /* All the boxes */
+    background-color: rgba(0,0,0, 0.7);
+    box-shadow: 1px 1px 20px black;
+}
+
+
+
 html, p, body { margin: 0; padding: 0; }
 body { 
 	background-color: #28231E;
 	font-family: oxygen;
-	color: #f2f2f2;
     font-smooth: auto;
     background-repeat: no-repeat;
     background-attachment:fixed;
@@ -28,13 +37,10 @@ footer {
     justify-content: center;
 }
 
-
 .clock {
-	background-color: rgba(0,0,0, 0.7);
     margin: 10px;
     padding: 10px 20px;
     border-radius: 2px;
-	box-shadow: 1px 1px 20px black;
 }
 
 .city {
@@ -42,8 +48,6 @@ footer {
     font-size: 22px;
     margin-bottom: 3px;
 }
-
-.date, .seconds { color: #bfbfbf; }
 
 .date {
     font-size: 14px;
@@ -72,11 +76,17 @@ footer {
 
 
 .info-table {
-    background-color: rgba(0,0,0, 0.75);
     padding: 0.2em 1em;
     border-radius: 2px;
-    box-shadow: 1px 1px 20px black;
     font-size: 1.7em;
+    font-weight: 300;
 }
-.value { text-align: left; font-weight: lighter; }
-.amount { color: #1e88e5; font-weight: lighter; padding-right: 10px; text-align: right; }
+.label { text-align: left; }
+.value { padding-right: 10px; text-align: right; }
+
+
+/* dark-theme */
+
+.clock.dark {
+    background-color: rgba(3, 35, 62, 0.7);
+}

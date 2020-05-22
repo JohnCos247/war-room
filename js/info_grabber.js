@@ -93,7 +93,7 @@ var imageNum = 0;
     */
     function initImages() {
         for(var i=0; i < BACKGROUND_FILES.length; i++) { 
-            backgrounds.push("./static/backgrounds/"+BACKGROUND_FILES[i]);
+            backgrounds.push("./backgrounds/"+BACKGROUND_FILES[i]);
         }
         preloadImages(backgrounds);
     }

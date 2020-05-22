@@ -29,6 +29,17 @@ header {
     align-items: flex-start;
 }
 
+.content {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+#chart {
+    flex-grow: 1;
+    max-width: 1200px;
+    overflow: hidden;
+}
+
 footer {
     width: 100%;
     padding: 20px 0;

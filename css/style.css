@@ -11,10 +11,10 @@ body { color: #4fefff; }    /* color: #f2f2f2; For white instead of light blue*/
 .modebar{ display: none !important; }
 
 html, p, body { margin: 0; padding: 0; }
-body { 
+body {
 	background-color: #28231E;
+    background: linear-gradient(to top, #512828, #0A2342);
 	font-family: oxygen;
-    font-smooth: auto;
     background-repeat: no-repeat;
     background-attachment:fixed;
     background-size: cover;

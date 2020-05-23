@@ -90,11 +90,18 @@ footer {
     max-width: 1200px;
     overflow: hidden;
 }
+.info {
+    padding: 10px;
+}
+.info h2 {
+    margin: 0 0 15px 0;
+    text-align: center;
+    font-size: 26px;
+}
 
 .info-table {
-    padding: 0.2em 1em;
     border-radius: 2px;
-    font-size: 1.7em;
+    font-size: 24px;
     font-weight: 300;
 }
 .label { text-align: left; }

@@ -1,6 +1,7 @@
 var SWITCH_INTERVAL = 30;			    			 //Set the number of seconds you want before switching images.
-var BACKGROUND_FILES = [                             //Add new backgrounds here.
-    'space.jpg',
+var CYCLE_BACKGROUND = false;                         // Set to cycle the background
+var BACKGROUNDS = [                             //Add new backgrounds here.
+//    'space.jpg',
 //    '1.jpg',
 //    '2.jpg',
 //    '3.jpg',
@@ -12,7 +13,6 @@ var BACKGROUND_FILES = [                             //Add new backgrounds here.
 //    '9.jpg',
 //    '10.jpg'
 ];
-var CYCLE_BACKGROUND = false;                         // Set to cycle the background
 var TIMES = [
     { 'place': 'California, USA', 'timezone': -9, 'id': 'la' },
     { 'place': 'Colorado, USA', 'timezone': -8, 'id': 'co' },
@@ -39,13 +39,14 @@ var imageNum = 0;
     * Function will be used to cycle the images and gifs.
     */
     function cycleImages() {
-        if(imageNum >= backgrounds.length) {
-            imageNum = 0;
+        if (BACKGROUNDS.length > 0) {
+            if(imageNum >= backgrounds.length) {
+                imageNum = 0;
+            }
+            $("#background").css('background-image',"url("+backgrounds[Math.floor(Math.random()*backgrounds.length)]+")" );
+            $("#background").fadeIn(300);
+            imageNum++;
         }
-            
-        $("#background").css('background-image',"url("+backgrounds[Math.floor(Math.random()*backgrounds.length)]+")" );
-        $("#background").fadeIn(300);
-        imageNum++;
     }
 
 
@@ -94,17 +95,17 @@ var imageNum = 0;
     */
     function makeData() {
         addRowToTable('Update Me', 'Please');
-        makeSamplePlot();
+        makePlot();
 //        $.ajax({
 //            url: '',
 //            success: function(results){
 //                addRowToTable('Update Me', 'Please');
-//                makeSamplePlot();
+//                makePlot();
 //            }
 //        });
     }
 
-    function makeSamplePlot() {
+    function makePlot() {
 
         var trace2 = {
             x: [1, 2, 3, 4, 5],
@@ -185,8 +186,8 @@ var imageNum = 0;
     * Function will be used to initialize the images.
     */
     function initImages() {
-        for(var i=0; i < BACKGROUND_FILES.length; i++) { 
-            backgrounds.push("./backgrounds/"+BACKGROUND_FILES[i]);
+        for(var i=0; i < BACKGROUNDS.length; i++) { 
+            backgrounds.push("./backgrounds/"+BACKGROUNDS[i]);
         }
         preloadImages(backgrounds);
     }

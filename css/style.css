@@ -19,33 +19,29 @@ body {
     background-attachment:fixed;
     background-size: cover;
     background-position: 50% 50%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 header {
     display: flex;
     flex-wrap: wrap;
-    padding: 10px 0;
+    padding: 10px;
     justify-content: space-around;
     align-items: flex-start;
 }
 
 .content {
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-#chart {
     flex-grow: 1;
-    max-width: 1200px;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
 }
 
 footer {
     width: 100%;
     padding: 20px 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
     display: flex;
     justify-content: center;
 }
@@ -87,6 +83,13 @@ footer {
 	font-weight: 300;
 }
 
+#chart {
+    padding: 10px 20px;
+    margin: 0px 20px;
+    flex-grow: 1;
+    max-width: 1200px;
+    overflow: hidden;
+}
 
 .info-table {
     padding: 0.2em 1em;
